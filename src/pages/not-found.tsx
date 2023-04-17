@@ -1,7 +1,8 @@
+import { Card, Typography } from "antd";
 import React from "react";
 
 const NotFound = () => {
-  return <div>NotFound</div>;
+  return <Card>NotFound</Card>;
 };
 
 export default NotFound;

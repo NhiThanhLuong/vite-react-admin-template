@@ -1,14 +1,39 @@
+import { routeList } from "@/data/constant/navs";
+import { LOGIN_PATH } from "@/data/constant/path";
+import Login from "@/features/auth/login";
+import LayoutComponent from "@/layout";
 import { FC, lazy } from "react";
-import { RouteObject, useRoutes } from "react-router-dom";
+import { Navigate, useRoutes } from "react-router-dom";
+import PrivateRoute from "./private-route";
 
-const Home = lazy(() => import("../pages/home"));
+const NotFound = lazy(() => import("@/pages/not-found"));
 
-const routes: RouteObject[] = [
+const routes = [
   {
-    path: "home",
-    element: <Home />,
+    path: LOGIN_PATH,
+    element: <Login />,
+  },
+  {
+    path: "/",
+    element: <LayoutComponent />,
+    children: [
+      {
+        path: "",
+        element: <Navigate to="dashboard" />,
+      },
+      ...routeList,
+      {
+        path: "*",
+        element: (
+          <PrivateRoute>
+            <NotFound />
+          </PrivateRoute>
+        ),
+      },
+    ],
   },
 ];
+console.log(routes);
 
 const RenderRouter: FC = () => {
   const element = useRoutes(routes);

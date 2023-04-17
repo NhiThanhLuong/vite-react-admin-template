@@ -12,8 +12,8 @@
     "plugin:prettier/recommended",
     "plugin:testing-library/react",
     "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended",
-    "plugin:import/warnings"
+    "plugin:prettier/recommended"
+    // "plugin:import/warnings"
   ],
   "plugins": ["@typescript-eslint", "simple-import-sort"],
   "rules": {

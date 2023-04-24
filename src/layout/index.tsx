@@ -1,4 +1,5 @@
 import { Layout } from "antd";
+import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import HeaderComponent from "./header";
 import MenuComponent from "./menu";
@@ -9,12 +10,12 @@ const LayoutComponent = () => {
   return (
     <Layout className="min-h-screen">
       <HeaderComponent />
-      {/* <MenuComponent /> */}
-
       <Layout>
         <MenuComponent />
-        <Content>
-          <Outlet />
+        <Content className="p-4">
+          <Suspense fallback="Loading...">
+            <Outlet />
+          </Suspense>
         </Content>
       </Layout>
     </Layout>

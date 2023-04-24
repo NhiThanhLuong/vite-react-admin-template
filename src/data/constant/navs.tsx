@@ -1,18 +1,45 @@
-import PrivateRoute from "@/routes/private-route";
 import { lazy } from "react";
-import { Tnavs, Troutes } from "./type-navs";
+import _ from "lodash";
 
+import PrivateRoute from "@/routes/private-route";
+import { AiOutlineDashboard } from "react-icons/ai";
+import { Tnavs, Troutes } from "./type-navs";
+import { DASHBOARD_PATH } from "./path";
+import { capitalizeFirstLetter } from "@/utils";
+
+const Dashboard = lazy(() => import("@/pages/dashboard"));
 const Home = lazy(() => import("@/pages/home"));
 const MyHome = lazy(() => import("@/pages/home/my-home"));
 
 const navs: Tnavs[] = [
   {
+    key: DASHBOARD_PATH,
+    label: "dashboard",
+    element: <Dashboard />,
+  },
+  {
     key: "/home",
     label: "Home",
+    icon: <AiOutlineDashboard />,
     children: [
       {
         key: "/my-home",
         label: "My Home",
+        element: <MyHome />,
+      },
+      {
+        key: "/my-home1",
+        label: "My Home1",
+        element: <Home />,
+      },
+      {
+        key: "/my-home2",
+        label: "My Home2",
+        element: <Home />,
+      },
+      {
+        key: "/my-home3",
+        label: "My Home3",
         element: <Home />,
       },
       {
@@ -63,20 +90,23 @@ const getRoutes = (arr: Troutes[], nav: Tnavs, basePath = "") => {
   return arr;
 };
 
-const getShowNavigation = (nav: Tnavs): Tnavs | undefined => {
+const getShowNavigation = (nav: Tnavs, basePath = ""): Tnavs | undefined => {
   if (nav.hidden === true) return;
   if (nav.children) {
     const arr: Tnavs[] = [];
     for (const n of nav.children) {
-      const formatN = getShowNavigation(n);
+      const formatN = getShowNavigation(n, nav.key);
       if (formatN) arr.push(formatN);
     }
+
     nav.children = arr.length > 0 ? arr : undefined;
   }
 
   return {
-    key: nav.key,
-    label: nav.label,
+    key: basePath + nav.key,
+    icon: nav.icon,
+    title: capitalizeFirstLetter(nav.label),
+    label: capitalizeFirstLetter(nav.label),
     children: nav.children,
     element: nav.element,
   };
@@ -86,8 +116,12 @@ const menuList: Tnavs[] = [];
 const routeList: Troutes[] = [];
 
 for (const nav of navs) {
-  if (getShowNavigation(nav)) menuList.push(getShowNavigation(nav) as Tnavs);
-  getRoutes(routeList, nav);
+  const nav1 = _.cloneDeep(nav);
+  const n = getShowNavigation(nav1);
+  n && menuList.push(n as Tnavs);
+
+  const nav2 = _.cloneDeep(nav);
+  getRoutes(routeList, nav2);
 }
 
 export { menuList, routeList };

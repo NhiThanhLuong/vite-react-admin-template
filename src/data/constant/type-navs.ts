@@ -2,6 +2,8 @@ import { ReactElement } from "react";
 
 type TnavsChild = {
   key: string;
+  icon?: ReactElement;
+  title?: string;
   label: string;
   element?: ReactElement;
   hidden?: true;

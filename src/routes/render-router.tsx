@@ -33,7 +33,6 @@ const routes = [
     ],
   },
 ];
-console.log(routes);
 
 const RenderRouter: FC = () => {
   const element = useRoutes(routes);

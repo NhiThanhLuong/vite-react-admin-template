@@ -1,7 +1,7 @@
-import { FormInstance } from "antd";
-import dayjs, { Dayjs } from "dayjs";
+import { FormInstance } from 'antd';
+import dayjs, { Dayjs } from 'dayjs';
 
-export function formatDateToString(date: Dayjs, formatType = "DD/MM/YYYY") {
+export function formatDateToString(date: Dayjs, formatType = 'DD/MM/YYYY') {
   return dayjs(date).format(formatType);
 }
 

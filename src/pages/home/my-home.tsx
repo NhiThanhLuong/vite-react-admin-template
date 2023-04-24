@@ -1,28 +1,28 @@
-import { FILTER_SCHEMA_PAGE_LIST } from "@/data/constant";
-import { useFilter } from "@/hooks/use-filter";
-import dayjs from "dayjs";
-import { Button } from "antd";
-import React, { FC } from "react";
-import { TFilterSchema } from "@/ts/types/filter";
-import { FilterWrapper } from "@/components";
+import { FILTER_SCHEMA_PAGE_LIST } from '@/data/constant';
+import { useFilter } from '@/hooks/use-filter';
+import dayjs from 'dayjs';
+import { Button } from 'antd';
+import React, { FC } from 'react';
+import { TFilterSchema } from '@/ts/types/filter';
+import { FilterWrapper } from '@/components';
 
 const now = dayjs();
 const filtersChema: TFilterSchema[] = [
   {
-    name: "name",
-    type: "string",
-    element: "input",
+    name: 'name',
+    type: 'string',
+    element: 'input',
   },
   {
-    name: "usedFromDateOnly",
-    type: "date",
-    element: "date",
-    defaultValue: now.subtract(7, "day"),
+    name: 'usedFromDateOnly',
+    type: 'date',
+    element: 'date',
+    defaultValue: now.subtract(7, 'day'),
   },
   {
-    name: "usedToDateOnly",
-    type: "date",
-    element: "date",
+    name: 'usedToDateOnly',
+    type: 'date',
+    element: 'date',
     defaultValue: now,
   },
   ...(FILTER_SCHEMA_PAGE_LIST as TFilterSchema[]),

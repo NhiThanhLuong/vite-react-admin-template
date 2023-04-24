@@ -9,8 +9,8 @@ function getStrTimesIndex(str: string, cha: string, num: number) {
 }
 
 function getFirstPathCode(path: string) {
-  const index0 = getStrTimesIndex(path, "/", 0);
-  const index1 = getStrTimesIndex(path, "/", 1);
+  const index0 = getStrTimesIndex(path, '/', 0);
+  const index1 = getStrTimesIndex(path, '/', 1);
 
   const activeKey = path.slice(index0, index1 > 0 ? index1 : path.length);
 

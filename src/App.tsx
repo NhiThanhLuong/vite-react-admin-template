@@ -1,9 +1,9 @@
-import { ConfigProvider, theme as ThemeConfig } from "antd";
-import "./App.css";
-import { setGlobalState } from "@/redux/global-slice";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import Routes from "./routes";
-import { useCallback, useEffect } from "react";
+import { ConfigProvider, theme as ThemeConfig } from 'antd';
+import './App.css';
+import { setGlobalState } from '@/redux/global-slice';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import Routes from './routes';
+import { useCallback, useEffect } from 'react';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -13,7 +13,7 @@ function App() {
     (dark = true) => {
       dispatch(
         setGlobalState({
-          theme: dark ? "dark" : "light",
+          theme: dark ? 'dark' : 'light',
         })
       );
     },
@@ -28,13 +28,13 @@ function App() {
   );
 
   useEffect(() => {
-    setTheme(theme === "dark");
+    setTheme(theme === 'dark');
 
     // watch system theme change
-    if (!localStorage.getItem("theme")) {
-      const mql = window.matchMedia("(prefers-color-scheme: dark)");
+    if (!localStorage.getItem('theme')) {
+      const mql = window.matchMedia('(prefers-color-scheme: dark)');
 
-      mql.addEventListener("change", matchMode);
+      mql.addEventListener('change', matchMode);
     }
   }, [matchMode, setTheme, theme]);
 
@@ -44,9 +44,9 @@ function App() {
         // locale={getAntdLocale()}
         componentSize="middle"
         theme={{
-          token: { colorPrimary: "#13c2c2" },
+          token: { colorPrimary: '#13c2c2' },
           algorithm:
-            theme === "dark"
+            theme === 'dark'
               ? ThemeConfig.darkAlgorithm
               : ThemeConfig.defaultAlgorithm,
         }}

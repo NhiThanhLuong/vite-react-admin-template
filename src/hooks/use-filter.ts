@@ -1,11 +1,11 @@
-import _ from "lodash";
-import { useMemo } from "react";
+import _ from 'lodash';
+import { useMemo } from 'react';
 
-import { DEFAULT_PAGINATION } from "@/data/constant";
-import { TFilterSchema } from "@/ts/types/filter";
-import { findObjInArrByKey } from "@/utils/array";
-import dayjs from "dayjs";
-import { useCustomSearchParams } from "./use-custom-search-params";
+import { DEFAULT_PAGINATION } from '@/data/constant';
+import { TFilterSchema } from '@/ts/types/filter';
+import { findObjInArrByKey } from '@/utils/array';
+import dayjs from 'dayjs';
+import { useCustomSearchParams } from './use-custom-search-params';
 
 // type IType = "string" | "number" | "date" | "array" | "boolean";
 
@@ -32,7 +32,7 @@ export const useFilter = (filterSchema: TFilterSchema[]) => {
     const result = {} as { [key: string]: K };
 
     for (const keyParam in paramsRouter) {
-      const filterItem = findObjInArrByKey(filterSchema, keyParam, "name") as
+      const filterItem = findObjInArrByKey(filterSchema, keyParam, 'name') as
         | TFilterSchema
         | undefined;
 
@@ -83,14 +83,14 @@ export const formatValueWithType = (
 ) => {
   if (!value) return defaultValue;
   try {
-    if (type === "number") return Number(value);
+    if (type === 'number') return Number(value);
     // if (type === "boolean") return value === "true" ? true : false;
-    if (type === "date") return dayjs(value).format("DD/MM/YYYYTHH:mm:ss");
+    if (type === 'date') return dayjs(value).format('DD/MM/YYYYTHH:mm:ss');
     // if (type === "array")
     //   return value
     //     .split(",")
     //     .map((item) => (itemType === "string" ? item : Number(item)));
-    if (type === "string") return value;
+    if (type === 'string') return value;
   } catch (error) {
     return;
   }
@@ -106,20 +106,20 @@ export const formatFilterBeforeSyncURL = (filter: { [key: string]: K }) => {
     if (
       (!filterValue && filterValue !== 0) ||
       (_.isArray(filterValue) && filterValue.length) === 0 ||
-      filterValue === "[]"
+      filterValue === '[]'
     ) {
       delete cloneFilter[filterKey];
       continue;
     }
 
     if (_.isArray(filterValue)) {
-      cloneFilter[filterKey] = filterValue.join(",");
+      cloneFilter[filterKey] = filterValue.join(',');
       continue;
     }
 
     // process date
     if (dayjs.isDayjs(filterValue)) {
-      cloneFilter[filterKey] = dayjs(filterValue).format("YYYY-MM-DD HH:mm:ss");
+      cloneFilter[filterKey] = dayjs(filterValue).format('YYYY-MM-DD HH:mm:ss');
       continue;
     }
   }

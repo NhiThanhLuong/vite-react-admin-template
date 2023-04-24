@@ -1,8 +1,8 @@
-import { menuList } from "@/data/constant/navs";
-import { getFirstPathCode } from "@/utils";
-import { Layout, Menu, theme } from "antd";
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { menuList } from '@/data/constant/navs';
+import { getFirstPathCode } from '@/utils';
+import { Layout, Menu, theme } from 'antd';
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const { Sider } = Layout;
 

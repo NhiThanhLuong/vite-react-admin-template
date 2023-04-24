@@ -1,10 +1,11 @@
-import { Breadcrumb } from "antd";
-import { useMemo } from "react";
-import { Link } from "react-router-dom";
+import { Breadcrumb } from 'antd';
+import { FC, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 
-import { DASHBOARD_PATH } from "@/data/constant";
+import { DASHBOARD_PATH } from '@/data/constant';
+import { BreadcrumsType } from '@/ts/types';
 
-const defaultRoutes = { url: DASHBOARD_PATH, title: "Trang chủ" };
+const defaultRoutes = { url: DASHBOARD_PATH, title: 'Trang chủ' };
 
 function itemRender(route: any, _: any, routes: any) {
   const isLast = routes.indexOf(route) === routes.length - 1;
@@ -15,7 +16,11 @@ function itemRender(route: any, _: any, routes: any) {
   );
 }
 
-export function CustomBreadcrumb({ routes = [] }) {
+type Props = {
+  routes?: BreadcrumsType[];
+};
+
+const CustomBreadcrumb: FC<Props> = ({ routes = [] }) => {
   const currentRoutes = useMemo(() => [defaultRoutes, ...routes], [routes]);
 
   return (
@@ -25,4 +30,6 @@ export function CustomBreadcrumb({ routes = [] }) {
       itemRender={itemRender}
     />
   );
-}
+};
+
+export default CustomBreadcrumb;

@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 type TInitialState = {
   token?: string;
@@ -7,17 +7,17 @@ type TInitialState = {
 };
 
 const initialState: TInitialState = {
-  token: localStorage.getItem("token") || undefined,
+  token: localStorage.getItem('token') || undefined,
   isLogged: false,
 };
 
 export const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState,
   reducers: {
     login: (state, { payload }) => {
       state.token = payload.token;
-      localStorage.setItem("token", payload.token);
+      localStorage.setItem('token', payload.token);
     },
   },
   // initialState: {

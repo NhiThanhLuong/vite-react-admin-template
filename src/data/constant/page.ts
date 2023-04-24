@@ -5,13 +5,13 @@ export const DEFAULT_PAGINATION = {
 
 export const FILTER_SCHEMA_PAGE_LIST = [
   {
-    name: "page",
-    type: "number",
+    name: 'page',
+    type: 'number',
     defaultValue: DEFAULT_PAGINATION.page,
   },
   {
-    name: "perPage",
-    type: "number",
+    name: 'perPage',
+    type: 'number',
     defaultValue: DEFAULT_PAGINATION.perPage,
   },
 ];

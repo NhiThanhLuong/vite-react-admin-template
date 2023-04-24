@@ -1,8 +1,8 @@
-import { Layout } from "antd";
-import { Suspense } from "react";
-import { Outlet } from "react-router-dom";
-import HeaderComponent from "./header";
-import MenuComponent from "./menu";
+import { Layout } from 'antd';
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
+import HeaderComponent from './header';
+import MenuComponent from './menu';
 
 const { Content } = Layout;
 

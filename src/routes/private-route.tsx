@@ -1,7 +1,7 @@
-import { LOGIN_PATH } from "@/data/constant/path";
-import { useAppSelector } from "@/redux/hooks";
-import { ReactElement } from "react";
-import { Navigate } from "react-router-dom";
+import { LOGIN_PATH } from '@/data/constant/path';
+import { useAppSelector } from '@/redux/hooks';
+import { ReactElement } from 'react';
+import { Navigate } from 'react-router-dom';
 
 type Props = {
   children: ReactElement;

@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ReactElement } from 'react';
 
 type TnavsChild = {
   key: string;
@@ -13,7 +13,7 @@ export type Tnavs = TnavsChild & {
   children?: TnavsChild[];
 };
 
-type TrouteChild = Pick<TnavsChild, "element"> & {
+type TrouteChild = Pick<TnavsChild, 'element'> & {
   path: string;
 };
 

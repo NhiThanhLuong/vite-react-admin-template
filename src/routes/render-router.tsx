@@ -1,12 +1,12 @@
-import { routeList } from "@/data/constant/navs";
-import { LOGIN_PATH } from "@/data/constant/path";
-import Login from "@/features/auth/login";
-import LayoutComponent from "@/layout";
-import { FC, lazy } from "react";
-import { Navigate, useRoutes } from "react-router-dom";
-import PrivateRoute from "./private-route";
+import { routeList } from '@/data/constant/navs';
+import { LOGIN_PATH } from '@/data/constant/path';
+import Login from '@/features/auth/login';
+import LayoutComponent from '@/layout';
+import { FC, lazy } from 'react';
+import { Navigate, useRoutes } from 'react-router-dom';
+import PrivateRoute from './private-route';
 
-const NotFound = lazy(() => import("@/pages/not-found"));
+const NotFound = lazy(() => import('@/pages/not-found'));
 
 const routes = [
   {
@@ -14,16 +14,16 @@ const routes = [
     element: <Login />,
   },
   {
-    path: "/",
+    path: '/',
     element: <LayoutComponent />,
     children: [
       {
-        path: "",
+        path: '',
         element: <Navigate to="dashboard" />,
       },
       ...routeList,
       {
-        path: "*",
+        path: '*',
         element: (
           <PrivateRoute>
             <NotFound />

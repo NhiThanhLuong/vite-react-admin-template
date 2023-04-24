@@ -1,13 +1,13 @@
-import { TFilterSchema } from "@/ts/types/filter";
-import { Col, Form, Row } from "antd";
-import React, { FC } from "react";
-import FilterCard from "./filter-card";
-import FilterItem from "./filter-item";
+import { TFilterSchema } from '@/ts/types/filter';
+import { Col, Form, Row } from 'antd';
+import React, { FC } from 'react';
+import FilterCard from './filter-card';
+import FilterItem from './filter-item';
 
 type Props = {
   onChange: (_: any) => void;
   onReset: () => void;
-  schemaList: Omit<TFilterSchema, "type" | "defaultValue">[];
+  schemaList: Omit<TFilterSchema, 'type' | 'defaultValue'>[];
 };
 
 const colProps = {

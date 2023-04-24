@@ -5,14 +5,14 @@ import {
   Input,
   InputNumber,
   Select,
-} from "antd";
-import { Dayjs } from "dayjs";
-import { FC, ReactElement } from "react";
+} from 'antd';
+import { Dayjs } from 'dayjs';
+import { FC, ReactElement } from 'react';
 
-import { TFilterSchema } from "@/ts/types/filter";
-import { checkDisableFrom, checkDisableTo } from "@/utils";
+import { TFilterSchema } from '@/ts/types/filter';
+import { checkDisableFrom, checkDisableTo } from '@/utils';
 
-type Props = Omit<TFilterSchema, "type" | "defaultValue"> & {
+type Props = Omit<TFilterSchema, 'type' | 'defaultValue'> & {
   form: FormInstance;
   children?: ReactElement;
   fromDateName?: string;
@@ -35,14 +35,14 @@ const FilterItem: FC<Props> = ({
 
   let Component: any;
   switch (element) {
-    case "input":
+    case 'input':
       Component = Input;
       break;
-    case "number":
+    case 'number':
       Component = InputNumber;
       delete newFieldProps.allowClear; // because antd's warning
       break;
-    case "select":
+    case 'select':
       Component = Select;
       // newFieldProps.loading ??= false;
       // newFieldProps.mode = mode;
@@ -51,9 +51,9 @@ const FilterItem: FC<Props> = ({
       //   newFieldProps.showSearch = true;
       // }
       break;
-    case "date":
+    case 'date':
       Component = DatePicker;
-      newFieldProps.format ??= "DD/MM/YYYY HH:mm:ss";
+      newFieldProps.format ??= 'DD/MM/YYYY HH:mm:ss';
       newFieldProps.showTime ??= true;
       if (fromDateName)
         newFieldProps.disabledDate = (value: Dayjs) =>

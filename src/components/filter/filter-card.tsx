@@ -1,9 +1,9 @@
-import { Button, Card, Space } from "antd";
-import { FC, ReactElement } from "react";
-import { useToggle } from "usehooks-ts";
-import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
-import { FcClearFilters, FcSearch } from "react-icons/fc";
-import { CustomCard } from "@/components";
+import { CustomCard } from '@/components';
+import { Button, Space } from 'antd';
+import { FC, ReactElement } from 'react';
+import { FaAngleDoubleDown, FaAngleDoubleUp } from 'react-icons/fa';
+import { FcClearFilters, FcSearch } from 'react-icons/fc';
+import { useToggle } from 'usehooks-ts';
 
 type Props = {
   onReset: () => void;

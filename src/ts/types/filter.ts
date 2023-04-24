@@ -4,40 +4,40 @@ import {
   InputNumberProps,
   InputProps,
   SelectProps,
-} from "antd";
-import { Dayjs } from "dayjs";
+} from 'antd';
+import { Dayjs } from 'dayjs';
 
 // type Component
 type TInput = {
-  element: "input";
+  element: 'input';
   fieldProps?: InputProps;
 };
 
 type TSelect = {
-  element: "select";
+  element: 'select';
   fieldProps?: SelectProps;
 };
 
 type TInputNumber = {
-  element: "number";
+  element: 'number';
   fieldProps?: InputNumberProps;
 };
 
 // Type schemaFilter
 type ITypeString = (TSelect | TInput) & {
-  type: "string";
+  type: 'string';
   defaultValue?: string;
 };
 
 type ITypeNumber = (TSelect | TInputNumber) & {
-  type: "number";
+  type: 'number';
   defaultValue?: number;
 };
 
 type ITypeDate = {
-  type: "date";
+  type: 'date';
   defaultValue?: Dayjs;
-  element: "date";
+  element: 'date';
   fieldProps?: DatePickerProps;
   fromDateName?: string;
   toDateName?: string;

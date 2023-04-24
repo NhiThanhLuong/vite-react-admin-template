@@ -1,24 +1,24 @@
-import { login } from "@/redux/auth-slice";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { Button, Card, Checkbox, Form, Input, Space } from "antd";
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useReadLocalStorage } from "usehooks-ts";
+import { login } from '@/redux/auth-slice';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { Button, Card, Checkbox, Form, Input, Space } from 'antd';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useReadLocalStorage } from 'usehooks-ts';
 
 const Login = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const token = useAppSelector((state) => state.auth.token);
-  const tokenLocal = useReadLocalStorage("token");
+  const tokenLocal = useReadLocalStorage('token');
 
   useEffect(() => {
     if (token || tokenLocal) {
-      navigate("/docs", { replace: true });
+      navigate('/docs', { replace: true });
     }
   }, [navigate, token, tokenLocal]);
 
   const handleClick = () => {
-    dispatch(login({ token: "123" }));
+    dispatch(login({ token: '123' }));
   };
 
   return (
@@ -28,14 +28,14 @@ const Login = () => {
       bg-no-repeat bg-center bg-cover"
       style={{
         // backgroundImage: `url('/login_background.png')`,
-        backgroundColor: "#95de64",
+        backgroundColor: '#95de64',
       }}
     >
       <Card
         className="row flex-column align-items-center"
         style={{
-          width: "min(100%, 500px)",
-          borderRadius: "8px",
+          width: 'min(100%, 500px)',
+          borderRadius: '8px',
         }}
       >
         <Form
@@ -46,7 +46,7 @@ const Login = () => {
         >
           <div
             style={{
-              textAlign: "center",
+              textAlign: 'center',
               marginTop: 24,
               marginBottom: 24,
             }}

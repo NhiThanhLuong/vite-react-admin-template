@@ -1,5 +1,5 @@
-import { Card, CardProps, Spin } from "antd";
-import React, { FC } from "react";
+import { Card, CardProps, Spin } from 'antd';
+import React, { FC } from 'react';
 
 type Props = CardProps & {
   className?: string;

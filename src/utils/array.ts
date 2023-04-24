@@ -1,7 +1,7 @@
 export const findObjInArrByKey = (
   arr: { [key: string]: any }[],
   value: string | number,
-  key = "id"
+  key = 'id'
 ) => {
   return arr.find((item) => item[key] === value);
 };
